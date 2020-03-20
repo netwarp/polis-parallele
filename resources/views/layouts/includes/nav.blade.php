@@ -13,22 +13,19 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="" class="nav-link">Blog</a>
+                    <a href="{{ action('Front\BlogController@index') }}" class="nav-link">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Podcasts</a>
+                    <a href="{{ action('Front\FrontController@podcasts') }}" class="nav-link">Podcasts</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Events</a>
+                    <a href="{{ action('Front\FrontController@events') }}" class="nav-link">Events</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Support</a>
+                    <a href="{{ action('Front\FrontController@support') }}" class="nav-link">Support</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Events</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">Contact</a>
+                    <a href="{{ action('Front\FrontController@contact') }}" class="nav-link">Contact</a>
                 </li>
                 <!-- Authentication Links -->
                 @guest

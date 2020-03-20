@@ -14,7 +14,7 @@
                     <ul>
                         <li><a href="{{ action('Admin\AdminController@index') }}">Home</a></li>
                         <li><a href="">Blog</a></li>
-                        <li><a href="">Podcasts</a></li>
+                        <li><a href="{{ action('Admin\PodcastsController@index') }}">Podcasts</a></li>
                         <li><a href="">Events</a></li>
                         <li><a href="">Support</a></li>
                         <li><a href="">Contact</a></li>
