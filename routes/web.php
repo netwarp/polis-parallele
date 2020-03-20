@@ -16,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => '/', 'namespace' => 'Front', 'as' => 'front'], function() {
     Route::get('/', 'FrontController@index');
 
+    Route::get('podcasts', 'FrontController@podcasts');
+
     Route::get('events', 'FrontController@events');
 
     Route::get('support', 'FrontController@support');
 
     Route::get('contact', 'FrontController@contact');
+
+    Route::get('blog', 'BlogController@index');
 });
 
 Auth::routes([
@@ -33,4 +37,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
     Route::get('/', 'AdminController@index');
+
+    Route::resources([
+        'podcasts' => 'PodcastsController'
+    ]);
 });

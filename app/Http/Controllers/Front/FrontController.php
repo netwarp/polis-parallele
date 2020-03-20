@@ -16,11 +16,19 @@ class FrontController extends Controller
     }
 
     /**
+     * Page Podcasts
+     */
+    public function podcasts()
+    {
+        return view('front.podcasts');
+    }
+
+    /**
      * Page Event
      */
-    public function event()
+    public function events()
     {
-
+        return view('front.events');
     }
 
     /**
@@ -28,7 +36,7 @@ class FrontController extends Controller
      */
     public function support()
     {
-
+        return view('front.support');
     }
 
     /**
@@ -36,6 +44,6 @@ class FrontController extends Controller
      */
     public function contact()
     {
-
+        return view('front.contact');
     }
 }
