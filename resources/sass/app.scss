@@ -1,1 +1,67 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.navbar {
+
+
+    .logo {
+        width: 16rem;
+    }
+
+    ul {
+        li {
+            margin: 0 0 0 1rem;
+        }
+    }
+}
+
+.navbar-light .navbar-nav .nav-link {
+    font-size: 1.1rem;
+    color: #000;
+}
+
+
+/**
+    Front
+ */
+
+.section-top {
+    background: rgb(13,15,73);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(62,50,84,1) 50%, rgba(0,0,0,1) 100%);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+
+/**
+    Admin
+ */
+.admin-zone {
+    .sidebar {
+        min-height: 74vh;
+        background: #222;
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+
+                a {
+                    display: block;
+                    font-size: 1rem;
+                    padding: 1rem;
+                }
+            }
+        }
+    }
+}
