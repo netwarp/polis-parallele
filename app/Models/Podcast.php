@@ -10,6 +10,7 @@ class Podcast extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'src',
         'description'
     ];

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Podcast;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -21,6 +22,16 @@ class FrontController extends Controller
     public function podcasts()
     {
         return view('front.podcasts');
+    }
+
+    /**
+     * Page one Podcast
+     * @param string $slug
+     */
+    public function podcast(string $slug)
+    {
+        $podcast = Podcast::where('slug', $slug)->first();
+        dd($podcast);
     }
 
     /**

@@ -3,9 +3,23 @@
 @section('content')
     <div class="container-fluid">
         <div class="card">
-            <div class="card-body">
-                <h1>Create new Podcast</h1>
+            <div class="card-header d-flex justify-content-between">
+                <h1 class="h2 d-inline">
+                    {{ $title }}
+                    @if (isset($podcast))
+                        <a href="/podcasts/{{ $podcast->slug }}" class="btn btn-primary" target="_blank">view online</a>
+                    @endif
+                </h1>
 
+                @if (isset($podcast))
+                    <form method="POST" action="{{ action('Admin\PodcastsController@destroy', $podcast->id) }}">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                @endif
+            </div>
+            <div class="card-body">
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -16,8 +30,11 @@
                     </div>
                 @endif
 
-                <form action="{{ action('Admin\PodcastsController@store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @if (Str::contains(Route::currentRouteAction(), 'edit'))
+                        @method('put')
+                    @endif
 
                     <div class="form-group">
                         <label for="title">Title</label>
@@ -25,8 +42,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="file">File (webm or mp3)</label>
-                        <input type="file" class="" name="file" accept="audio/*">
+                        <label for="file">File (webm format only)</label>
+                        <input type="file" class="" name="file" accept=".webm">
                     </div>
 
                     <div class="form-group">

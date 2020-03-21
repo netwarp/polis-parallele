@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <a href="{{ action('Admin\PodcastsController@create') }}" class="btn btn-primary my-4">Create new Podcast</a>
-                <table class="table">
+                <table class="table table-striped">
                     <thead>
                     <tr>
                         <th>Id</th>
@@ -19,10 +19,10 @@
                     <tbody>
                     @forelse($podcasts as $podcast)
                         <tr>
-                            <td>{{ $podcast->id }}</td>
-                            <td>{{ $podcast->title }}</td>
-                            <td>{{ $podcast->created_at }}</td>
-                            <td>{{ $podcast->updated_at }}</td>
+                            <td><a href="{{ action('Admin\PodcastsController@edit', $podcast->id) }}">{{ $podcast->id }}</a></td>
+                            <td><a href="{{ action('Admin\PodcastsController@edit', $podcast->id) }}">{{ $podcast->title }}</a></td>
+                            <td><a href="{{ action('Admin\PodcastsController@edit', $podcast->id) }}">{{ $podcast->created_at }}</a></td>
+                            <td><a href="{{ action('Admin\PodcastsController@edit', $podcast->id) }}">{{ $podcast->updated_at }}</a></td>
                         </tr>
                     @empty
                         <tr>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Podcast;
+use Storage;
+use Str;
 
 class PodcastsController extends Controller
 {
@@ -27,7 +29,11 @@ class PodcastsController extends Controller
      */
     public function create()
     {
-        return response()->view('admin.podcasts.create_or_edit');
+        $title = 'Create new Podcast';
+
+        $action = action('Admin\PodcastsController@store');
+
+        return response()->view('admin.podcasts.create_or_edit', compact('title', 'action'));
     }
 
     /**
@@ -40,21 +46,31 @@ class PodcastsController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'file' => 'required',
+            'file' => 'required | mimes:webm',
             'description' => 'required'
         ]);
 
         $data = [
             'title' => $request->get('title'),
+            'slug' => Str::slug($request->get('title')),
             'description' => $request->get('description'),
         ];
-        dd($data);
 
-        $file = $request->file('file');
-        $extension = $file->extension();
-        $name = md5($data['title']);
-        $complete_name = "{$name}.{$extension}";
-        dd($complete_name);
+        $podcast = Podcast::create($data);
+
+        if ($request->has('file')) {
+            $file = $request->file('file');
+            $extension = $file->getClientOriginalExtension();
+            $name = md5($data['title']);
+            $complete_name = "{$name}.{$extension}";
+
+            $data['src'] = $complete_name;
+            $file->storeAs("podcasts/{$podcast->id}", $complete_name);
+        }
+
+        $podcast->update($data);
+
+        return redirect()->action('Admin\PodcastsController@index')->with('success', 'Podcast created');
     }
 
     /**
@@ -76,7 +92,13 @@ class PodcastsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $podcast = Podcast::findOrFail($id);
+
+        $title = 'Edit podcast';
+
+        $action = action('Admin\PodcastsController@update', $podcast->id);
+
+        return response()->view('admin.podcasts.create_or_edit', compact('podcast', 'title', 'action'));
     }
 
     /**
@@ -88,7 +110,27 @@ class PodcastsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = [
+            'title' => $request->get('title'),
+            'slug' => Str::slug($request->get('title')),
+            'description' => $request->get('description'),
+        ];
+
+        $podcast = Podcast::findOrFail($id);
+
+        if ($request->has('file')) {
+            $file = $request->file('file');
+            $extension = $file->getClientOriginalExtension();
+            $name = md5($data['title']);
+            $complete_name = "{$name}.{$extension}";
+
+            $data['src'] = $complete_name;
+            $file->storeAs("podcasts/{$podcast->id}", $complete_name);
+        }
+
+        $podcast->update($data);
+
+        return redirect()->action('Admin\PodcastsController@index')->with('success', 'Podcast created');
     }
 
     /**
@@ -99,6 +141,12 @@ class PodcastsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $podcast = Podcast::findOrFail($id);
+
+        Storage::deleteDirectory("podcasts/{$podcast->id}");
+
+        $podcast->delete();
+
+        return redirect()->action('Admin\PodcastsController@index')->with('success', 'Property deleted');
     }
 }
