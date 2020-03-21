@@ -1,0 +1,4 @@
+<footer>
+
+</footer>
+@stack('js')

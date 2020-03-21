@@ -44,4 +44,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
         'podcasts' => 'PodcastsController',
         'events' => 'EventsController'
     ]);
+
+    Route::get('support', 'SupportController@index');
+    Route::post('support', 'SupportController@post');
 });
