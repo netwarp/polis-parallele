@@ -18,6 +18,8 @@ Route::group(['prefix' => '/', 'namespace' => 'Front', 'as' => 'front'], functio
 
     Route::get('podcasts', 'FrontController@podcasts');
 
+    Route::get('podcasts/{slug}', 'FrontController@podcast');
+
     Route::get('events', 'FrontController@events');
 
     Route::get('support', 'FrontController@support');
