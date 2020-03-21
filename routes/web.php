@@ -47,4 +47,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
 
     Route::get('support', 'SupportController@index');
     Route::post('support', 'SupportController@post');
+
+    Route::get('contact', 'ContactController@index');
+    Route::post('contact', 'ContactController@post');
 });

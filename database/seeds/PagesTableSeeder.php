@@ -12,8 +12,16 @@ class PagesTableSeeder extends Seeder
      */
     public function run()
     {
+        Page::truncate();
+
         Page::create([
             'label' => 'support',
+            'content' => '',
+            'data' => '{}'
+        ]);
+
+        Page::create([
+            'label' => 'contact',
             'content' => '',
             'data' => '{}'
         ]);

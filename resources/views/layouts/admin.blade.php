@@ -17,7 +17,7 @@
                         <li><a href="{{ action('Admin\PodcastsController@index') }}">Podcasts</a></li>
                         <li><a href="{{ action('Admin\EventsController@index') }}">Events</a></li>
                         <li><a href="{{ action('Admin\SupportController@index') }}">Support</a></li>
-                        <li><a href="">Contact</a></li>
+                        <li><a href="{{ action('Admin\ContactController@index') }}">Contact</a></li>
                     </ul>
                 </div>
             </div>
