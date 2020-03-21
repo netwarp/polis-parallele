@@ -12,7 +12,7 @@ class ContactController extends Controller
     {
         $page = Page::where('label', 'contact')->first();
 
-        return view('admin.support.index', compact('page'));
+        return view('admin.contact.index', compact('page'));
     }
 
     public function post(Request $request)
