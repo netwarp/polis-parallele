@@ -41,6 +41,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     Route::get('/', 'AdminController@index');
 
     Route::resources([
+        'posts' => 'PostsController',
         'podcasts' => 'PodcastsController',
         'events' => 'EventsController'
     ]);

@@ -13,7 +13,7 @@
                 <div class="sidebar">
                     <ul>
                         <li><a href="{{ action('Admin\AdminController@index') }}">Home</a></li>
-                        <li><a href="">Blog</a></li>
+                        <li><a href="{{ action('Admin\PostsController@index') }}">Blog</a></li>
                         <li><a href="{{ action('Admin\PodcastsController@index') }}">Podcasts</a></li>
                         <li><a href="{{ action('Admin\EventsController@index') }}">Events</a></li>
                         <li><a href="{{ action('Admin\SupportController@index') }}">Support</a></li>
