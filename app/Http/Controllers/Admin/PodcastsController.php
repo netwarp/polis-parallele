@@ -17,7 +17,7 @@ class PodcastsController extends Controller
      */
     public function index()
     {
-        $podcasts = Podcast::paginate(4);
+        $podcasts = Podcast::orderby('id', 'desc')->paginate(10);
 
         return response()->view('admin.podcasts.index', compact('podcasts'));
     }
@@ -40,7 +40,7 @@ class PodcastsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -106,7 +106,7 @@ class PodcastsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -137,7 +137,7 @@ class PodcastsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
