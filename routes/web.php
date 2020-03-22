@@ -52,3 +52,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     Route::get('contact', 'ContactController@index');
     Route::post('contact', 'ContactController@post');
 });
+
+Route::get('resource/{resource}/{id}/{file}', function($resource, $id, $file) {
+    $path = storage_path("app/{$resource}/{$id}/{$file}");
+    if (! File::exists($path)) {
+        return;
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+    $response = Response::make($file, 200);
+    $response->header('Content-Type', $type);
+    return $response;
+});
