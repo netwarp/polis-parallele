@@ -42,7 +42,7 @@
 
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" name="title" value="{{ $posts->title ?? old('title') ?? '' }}">
+                        <input type="text" class="form-control" name="title" value="{{ $post->title ?? old('title') ?? '' }}">
                     </div>
 
                     <div class="form-group">
