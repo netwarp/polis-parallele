@@ -10899,6 +10899,10 @@ a.text-dark:focus {
     Front
  */
 
+main {
+  min-height: 50vh;
+}
+
 .section-top {
   background: #0d0f49;
   background: radial-gradient(circle, black 0%, #3e3254 50%, black 100%);
@@ -10927,5 +10931,23 @@ a.text-dark:focus {
   display: block;
   font-size: 1rem;
   padding: 1rem;
+}
+
+footer {
+  background: #2a2a2a;
+  padding: 2rem 0;
+}
+
+footer ul {
+  margin: 0;
+  padding: 0;
+}
+
+footer ul li {
+  list-style-type: none;
+}
+
+footer ul li a {
+  color: #fff;
 }
 
