@@ -2,13 +2,18 @@
 
 @section('content')
     <div class="section-top">
-        <h1>Contact</h1>
+        <h1>Blog</h1>
     </div>
 
     <div class="container">
         <div class="card my-4">
+            <div class="card-header">
+                <h2>{{ $post->title }}</h2>
+            </div>
             <div class="card-body">
-                {{ $page->content }}
+                <div class="my-4">
+                    {{ $post->content }}
+                </div>
             </div>
         </div>
     </div>

@@ -8,7 +8,7 @@
     <div class="container">
         <div class="card my-4">
             <div class="card-body">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus error eum facere id iusto laboriosam magni, minus omnis optio perspiciatis quas quia quo rem rerum, saepe velit veniam vitae voluptatibus.
+                {{ $page->content }}
             </div>
         </div>
     </div>

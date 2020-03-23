@@ -27,6 +27,8 @@ Route::group(['prefix' => '/', 'namespace' => 'Front', 'as' => 'front'], functio
     Route::get('contact', 'FrontController@contact');
 
     Route::get('blog', 'BlogController@index');
+
+    Route::get('blog/{slug}', 'BlogController@post');
 });
 
 Auth::routes([

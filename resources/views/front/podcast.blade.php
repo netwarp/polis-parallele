@@ -17,8 +17,8 @@
                 <div>
                     {{ $podcast->description }}
                 </div>
-                <div>
-                    <a href="{{ action('Front\FrontController@podcast', $podcast->slug) }}" class="btn btn-primary">Plus</a>
+                <div class="card-footer">
+                    <a href="{{ action('Front\FrontController@podcasts') }}" class="btn btn-primary">Tous les Podcasts</a>
                 </div>
             </div>
         </div>

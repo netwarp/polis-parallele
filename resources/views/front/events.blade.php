@@ -6,16 +6,24 @@
     </div>
 
     <div class="container">
-        @for($i = 0; $i < 3; $i++)
+        @forelse($events as $event)
             <div class="card my-4">
                 <div class="card-header">
-                    <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore?</h2>
+                    <h2>{{ $event->title ?? '' }}</h2>
                 </div>
                 <div class="card-body">
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloribus eaque hic inventore non obcaecati, odit perferendis, provident quas repellat reprehenderit tenetur voluptatum! Maiores nesciunt porro quis recusandae sapiente ullam?</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, delectus dolor exercitationem iure labore, odio officiis possimus quaerat recusandae sapiente sit voluptate, voluptatum. Atque consectetur dolorem in necessitatibus, quam voluptatibus?</p>
+                    <div>
+                        {{ $event->date ?? '' }}
+                    </div>
+                    <div>
+                        {{ $event->description ?? '' }}
+                    </div>
                 </div>
             </div>
-        @endfor
+        @empty
+            Nothing
+        @endforelse
+
+        {{ $events->links() }}
     </div>
 @endsection

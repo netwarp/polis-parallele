@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Models\Podcast;
 use Illuminate\Http\Request;
+use App\Models\Podcast;
 use App\Models\Event;
+use App\Models\Page;
 
 use GrahamCampbell\Markdown\Facades\Markdown;
 
@@ -44,26 +45,34 @@ class FrontController extends Controller
 
     /**
      * Page Event
+     * @return \Illuminate\View\View
      */
     public function events()
     {
-        Markdown::convertToHtml([''], [], []); // <p>foo</p>
-    //    return view('front.events');
+        $events = Event::orderBy('id', 'desc')->paginate(10);
+
+        return view('front.events', compact('events'));
     }
 
     /**
      * Page Support
+     * @return \Illuminate\View\View
      */
     public function support()
     {
-        return view('front.support');
+        $page = Page::where('label', 'support')->first();
+
+        return view('front.support', compact('page'));
     }
 
     /**
      * Page Contact
+     * @return \Illuminate\View\View
      */
     public function contact()
     {
-        return view('front.contact');
+        $page = Page::where('label', 'contact')->first();
+
+        return view('front.contact', compact('page'));
     }
 }

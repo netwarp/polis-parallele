@@ -23,5 +23,7 @@
         @empty
             Nothing
         @endforelse
+
+        {{ $podcasts->links() }}
     </div>
 @endsection
