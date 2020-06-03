@@ -10923,6 +10923,10 @@ a.text-dark:focus {
   }
 }
 
+a {
+  color: #3e3254;
+}
+
 .navbar .logo {
   width: 16rem;
 }
@@ -10932,8 +10936,8 @@ a.text-dark:focus {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  font-size: 1.1rem;
-  color: #000;
+  font-size: 1.2rem;
+  color: #3e3254;
 }
 
 /**
@@ -10947,6 +10951,22 @@ main {
 section {
   margin-bottom: 2rem;
   min-height: 20rem;
+}
+
+section .section-title {
+  font-size: 2.4rem;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.btn-primary {
+  background: #3e3254;
+  border-color: #3e3254;
+}
+
+.btn-primary:hover {
+  background: #ba40f0;
+  border-color: #ba40f0;
 }
 
 .section-top {
@@ -10975,6 +10995,13 @@ section {
   color: #3e3254;
 }
 
+#section-bg1 {
+  background: url("/images/bg1.jpg");
+  background-size: cover;
+  min-height: 15rem;
+  opacity: 0.9;
+}
+
 /**
     Admin
  */
@@ -10993,10 +11020,11 @@ section {
   display: block;
   font-size: 1rem;
   padding: 1rem;
+  color: #fff;
 }
 
 footer {
-  background: #2a2a2a;
+  background: #090516;
   padding: 2rem 0;
 }
 

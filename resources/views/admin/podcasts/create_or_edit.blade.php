@@ -42,8 +42,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="file">File (webm format only)</label>
-                        <input type="file" class="" name="file" accept=".webm">
+                        <label for="src">Source from Youtube</label>
+                        <input type="text" class="form-control" name="src" value="{{ $podcast->src ?? old('src') ?? '' }}">
                     </div>
 
                     <div class="form-group">

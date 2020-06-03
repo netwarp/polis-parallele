@@ -46,7 +46,7 @@ class PodcastsController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'file' => 'required | mimes:webm',
+            'src' => 'required',
             'description' => 'required'
         ]);
 
@@ -54,21 +54,10 @@ class PodcastsController extends Controller
             'title' => $request->get('title'),
             'slug' => Str::slug($request->get('title')),
             'description' => $request->get('description'),
+            'src' => $request->get('src'),
         ];
 
         $podcast = Podcast::create($data);
-
-        if ($request->has('file')) {
-            $file = $request->file('file');
-            $extension = $file->getClientOriginalExtension();
-            $name = md5($data['title']);
-            $complete_name = "{$name}.{$extension}";
-
-            $data['src'] = $complete_name;
-            $file->storeAs("podcasts/{$podcast->id}", $complete_name);
-        }
-
-        $podcast->update($data);
 
         return redirect()->action('Admin\PodcastsController@index')->with('success', 'Podcast created');
     }

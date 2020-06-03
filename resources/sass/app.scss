@@ -7,8 +7,16 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar {
+$red2: #fe0330;
+$purple2: rgba(62, 50, 84, 1);
+$purple3: #ba40f0;
 
+a {
+    color: $purple2;
+}
+
+
+.navbar {
 
     .logo {
         width: 16rem;
@@ -22,8 +30,8 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-    font-size: 1.1rem;
-    color: #000;
+    font-size: 1.2rem;
+    color: $purple2
 }
 
 
@@ -38,6 +46,22 @@ main {
 section {
     margin-bottom: 2rem;
     min-height: 20rem;
+
+    .section-title {
+        font-size: 2.4rem;
+        text-align: center;
+        margin: 3rem 0;
+    }
+}
+
+.btn-primary {
+    background: $purple2;
+    border-color: $purple2;
+
+    &:hover {
+        background: $purple3;
+        border-color: $purple3;
+    }
 }
 
 .section-top {
@@ -64,8 +88,15 @@ section {
     i {
         font-size: 5rem;
         margin-bottom: 1rem;
-        color: rgba(62, 50, 84, 1);
+        color: $purple2;
     }
+}
+
+#section-bg1 {
+    background: url('/images/bg1.jpg');
+    background-size: cover;
+    min-height: 15rem;
+    opacity: 0.9;
 }
 
 /**
@@ -86,6 +117,7 @@ section {
                     display: block;
                     font-size: 1rem;
                     padding: 1rem;
+                    color: #fff;
                 }
             }
         }
@@ -93,7 +125,7 @@ section {
 }
 
 footer {
-    background: #2a2a2a;
+    background: #090516;
     padding: 2rem 0;
 
     ul {

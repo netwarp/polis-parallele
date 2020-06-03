@@ -20,8 +20,10 @@ class FrontController extends Controller
     public function index()
     {
         $posts = Post::orderBy('id', 'desc')->limit(6)->get();
+        $podcasts = Podcast::orderBy('id', 'desc')->limit(6)->get();
+        $events = Event::orderBy('id', 'desc')->limit(6)->get();
 
-        return view('front.index', compact('posts'));
+        return view('front.index', compact('posts', 'podcasts', 'events'));
     }
 
     /**
