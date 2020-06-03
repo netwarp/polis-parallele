@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Podcast;
 use App\Models\Event;
 use App\Models\Page;
+use App\Models\Post;
 
 use GrahamCampbell\Markdown\Facades\Markdown;
 
@@ -18,7 +19,9 @@ class FrontController extends Controller
      */
     public function index()
     {
-        return view('front.index');
+        $posts = Post::orderBy('id', 'desc')->limit(6)->get();
+
+        return view('front.index', compact('posts'));
     }
 
     /**

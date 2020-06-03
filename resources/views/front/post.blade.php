@@ -12,7 +12,7 @@
             </div>
             <div class="card-body">
                 <div class="my-4">
-                    {{ $post->content }}
+                    @markdown($post->content)
                 </div>
             </div>
         </div>
